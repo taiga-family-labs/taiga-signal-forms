@@ -1,6 +1,10 @@
 import {Component, provideZonelessChangeDetection} from '@angular/core';
 import {bootstrapApplication} from '@angular/platform-browser';
-import {provideTaiga, TuiRoot} from '@taiga-ui/core';
+import {
+    provideTaiga,
+    tuiAssetsPathProvider,
+    TuiRoot,
+} from '@taiga-ui/core';
 
 import {App} from './app/app';
 
@@ -12,5 +16,9 @@ import {App} from './app/app';
 class Root {}
 
 void bootstrapApplication(Root, {
-    providers: [provideZonelessChangeDetection(), provideTaiga()],
+    providers: [
+        provideZonelessChangeDetection(),
+        provideTaiga(),
+        tuiAssetsPathProvider('https://taiga-ui.dev/assets/taiga-ui/icons'),
+    ],
 });
