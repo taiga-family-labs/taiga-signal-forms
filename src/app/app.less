@@ -80,7 +80,7 @@ h2 {
 
 table {
     width: 100%;
-    min-width: 42rem;
+    min-width: 30rem;
     border-collapse: collapse;
 }
 
@@ -100,6 +100,16 @@ th {
 
 tbody tr:last-child td {
     border-bottom: 0;
+}
+
+.control-cell {
+    display: grid;
+    gap: 0.2rem;
+
+    code {
+        color: var(--tui-text-secondary);
+        font-size: 0.75rem;
+    }
 }
 
 .status {
