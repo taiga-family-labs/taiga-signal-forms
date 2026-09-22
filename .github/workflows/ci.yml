@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - run: npm install
+
+      - name: Build
+        run: npm run check -- --base-href /taiga-signal-forms/
+
+      - name: Configure GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/configure-pages@v5
+
+      - name: Upload GitHub Pages artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist/taiga-signal-forms/browser
+
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
