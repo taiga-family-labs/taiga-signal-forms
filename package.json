@@ -1,0 +1,32 @@
+{
+  "name": "taiga-signal-forms",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "ng serve",
+    "build": "ng build",
+    "check": "ng build --configuration production"
+  },
+  "dependencies": {
+    "@angular/cdk": "^22.1.0",
+    "@angular/common": "22.1.7",
+    "@angular/core": "22.1.7",
+    "@angular/forms": "22.1.7",
+    "@angular/platform-browser": "22.1.7",
+    "@taiga-ui/addon-commerce": "5.24.0",
+    "@taiga-ui/cdk": "5.24.0",
+    "@taiga-ui/core": "5.24.0",
+    "@taiga-ui/i18n": "5.24.0",
+    "@taiga-ui/kit": "5.24.0",
+    "@taiga-ui/styles": "5.24.0",
+    "libphonenumber-js": "1.13.11",
+    "rxjs": "^7.8.2",
+    "tslib": "^2.8.1"
+  },
+  "devDependencies": {
+    "@angular/build": "22.1.7",
+    "@angular/cli": "22.1.7",
+    "less": "^4.4.1",
+    "typescript": "~6.0.2"
+  }
+}
