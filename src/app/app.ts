@@ -50,15 +50,16 @@ import {FormControls} from './form-controls';
                         <thead>
                             <tr>
                                 <th>Control</th>
-                                <th>Package</th>
                                 <th>Signal Forms</th>
                             </tr>
                         </thead>
                         <tbody>
                             @for (row of components; track row.id) {
                                 <tr>
-                                    <td><strong>{{ row.name }}</strong></td>
-                                    <td><code>{{ row.package }}</code></td>
+                                    <td class="control-cell">
+                                        <strong>{{ row.name }}</strong>
+                                        <code>{{ row.package }}</code>
+                                    </td>
                                     <td>
                                         <span
                                             class="status"
