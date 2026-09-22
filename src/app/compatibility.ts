@@ -3,7 +3,13 @@ export type CompatibilityStatus = 'verified' | 'live' | 'gap';
 export interface CompatibilityRow {
     readonly id: string;
     readonly name: string;
-    readonly package: '@taiga-ui/core' | '@taiga-ui/kit' | '@taiga-ui/addon-commerce' | '@taiga-ui/addon-mobile' | '@taiga-ui/addon-table';
+    readonly package:
+        | '@taiga-ui/core'
+        | '@taiga-ui/kit'
+        | '@taiga-ui/layout'
+        | '@taiga-ui/addon-commerce'
+        | '@taiga-ui/addon-mobile'
+        | '@taiga-ui/addon-table';
     readonly status: CompatibilityStatus;
     readonly label: string;
 }
@@ -65,6 +71,7 @@ const CONTROLS = [
     ['input-card-group', 'Input Card Group', '@taiga-ui/addon-commerce'],
 
     ['search-bar', 'Search Bar', '@taiga-ui/addon-mobile'],
+    ['input-search', 'Input Search', '@taiga-ui/layout'],
 
     ['table-control', 'Table Control', '@taiga-ui/addon-table'],
 ] as const;
