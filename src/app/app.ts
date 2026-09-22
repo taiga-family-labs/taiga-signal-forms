@@ -30,7 +30,7 @@ import {FormControls} from './form-controls';
                         <p class="eyebrow">Live compatibility lab</p>
                         <h2>All Taiga UI form controls</h2>
                     </div>
-                    <span class="status" data-status="live">43 live + 1 gap</span>
+                    <span class="status" data-status="live">44 live + 1 gap</span>
                 </div>
 
                 <app-form-controls />
