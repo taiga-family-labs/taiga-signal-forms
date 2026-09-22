@@ -67,6 +67,7 @@ import {
     TuiTextarea,
     tuiInputPhoneInternationalOptionsProvider,
 } from '@taiga-ui/kit';
+import {TuiInputSearch} from '@taiga-ui/layout';
 
 interface DemoModel {
     readonly block: boolean;
@@ -88,6 +89,7 @@ interface DemoModel {
     readonly filter: readonly string[];
     readonly inline: string;
     readonly inputRange: readonly [number, number];
+    readonly inputSearch: string;
     readonly inputSlider: number | null;
     readonly like: boolean;
     readonly month: TuiMonth | null;
@@ -149,6 +151,7 @@ interface DemoModel {
         TuiInputPhoneInternational,
         TuiInputPin,
         TuiInputRange,
+        TuiInputSearch,
         TuiInputSlider,
         TuiInputTime,
         TuiInputYear,
@@ -170,7 +173,7 @@ interface DemoModel {
     ],
     template: `
         <div class="summary">
-            <strong>43 live controls + 1 known gap</strong>
+            <strong>44 live controls + 1 known gap</strong>
             <span>Live controls below use <code>[formField]</code>; Table Control shows the current v5 selector gap.</span>
         </div>
 
@@ -583,6 +586,22 @@ interface DemoModel {
                 </search>
             </article>
 
+            <article class="example" id="input-search">
+                <h3>Input Search</h3>
+                <tui-textfield>
+                    <label tuiLabel>Search</label>
+                    <input
+                        [formField]="f.inputSearch"
+                        [tuiInputSearch]="searchContent"
+                    />
+                    <ng-template #searchContent>
+                        <div class="search-preview">
+                            Search overlay content
+                        </div>
+                    </ng-template>
+                </tui-textfield>
+            </article>
+
             <article class="example example_gap" id="table-control">
                 <h3>
                     Table Control
@@ -670,6 +689,7 @@ export class FormControls {
         filter: ['Food'],
         inline: 'Inline',
         inputRange: [20, 80],
+        inputSearch: '',
         inputSlider: 50,
         like: true,
         month: null,
