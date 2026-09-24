@@ -12,7 +12,7 @@ export interface CompatibilityRow {
         | '@taiga-ui/addon-table';
     readonly status: CompatibilityStatus;
     readonly label: string;
-    readonly testUrl?: string;
+    readonly detailsUrl?: string;
 }
 
 const UPSTREAM_TESTS: ReadonlyMap<string, string> = new Map([
@@ -97,9 +97,12 @@ export const COMPONENTS: readonly CompatibilityRow[] = CONTROLS.map(
                     : status === 'live'
                       ? 'Live [formField]'
                       : 'Missing [formField] selector',
-            testUrl: testPath
-                ? `https://github.com/taiga-family/taiga-ui/blob/main/${testPath}`
-                : undefined,
+            detailsUrl:
+                id === 'table-control'
+                    ? 'https://github.com/taiga-family/taiga-ui/blob/main/projects/addon-table/directives/table-control/table-control.directive.ts#L9-L10'
+                    : testPath
+                      ? `https://github.com/taiga-family/taiga-ui/blob/main/${testPath}`
+                      : undefined,
         };
     },
 );
