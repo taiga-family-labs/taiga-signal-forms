@@ -184,7 +184,6 @@ interface DemoModel {
                     <label tuiLabel>Text</label>
                     <input tuiInput [formField]="f.text" />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="checkbox">
@@ -193,7 +192,6 @@ interface DemoModel {
                     <input tuiCheckbox type="checkbox" [formField]="f.checkbox" />
                     Native checkbox
                 </label>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="block">
@@ -202,7 +200,6 @@ interface DemoModel {
                     <input type="checkbox" [formField]="f.block" />
                     Block option
                 </label>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="like">
@@ -211,7 +208,6 @@ interface DemoModel {
                     <input tuiLike type="checkbox" [formField]="f.like" />
                     Favorite
                 </label>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="radio">
@@ -236,7 +232,6 @@ interface DemoModel {
                         Two
                     </label>
                 </div>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="segmented">
@@ -253,7 +248,6 @@ interface DemoModel {
                         </label>
                     }
                 </tui-segmented>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="slider">
@@ -263,7 +257,6 @@ interface DemoModel {
                     type="range"
                     [formField]="$any(f.slider)"
                 />
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="switch">
@@ -272,7 +265,6 @@ interface DemoModel {
                     <input tuiSwitch type="checkbox" [formField]="f.switch" />
                     Enabled
                 </label>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="textarea">
@@ -281,7 +273,6 @@ interface DemoModel {
                     <label tuiLabel>Comment</label>
                     <textarea tuiTextarea [formField]="f.textarea"></textarea>
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="button-select">
@@ -298,7 +289,6 @@ interface DemoModel {
                         [items]="people"
                     />
                 </button>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="combo-box">
@@ -310,13 +300,11 @@ interface DemoModel {
                         [items]="people"
                     />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="counter">
                 <h3>Counter</h3>
                 <tui-counter [formField]="$any(f.counter)" />
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="filter">
@@ -326,7 +314,6 @@ interface DemoModel {
                     [formField]="$any(f.filter)"
                     [items]="filters"
                 />
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-chip">
@@ -335,7 +322,6 @@ interface DemoModel {
                     <label tuiLabel>Tags</label>
                     <input tuiInputChip [formField]="$any(f.chips)" />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-color">
@@ -344,7 +330,6 @@ interface DemoModel {
                     <label tuiLabel>Color</label>
                     <input tuiInputColor [formField]="$any(f.color)" />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-date">
@@ -354,7 +339,6 @@ interface DemoModel {
                     <input tuiInputDate [formField]="$any(f.date)" />
                     <tui-calendar *tuiDropdown />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-files">
@@ -366,7 +350,6 @@ interface DemoModel {
                         [formField]="$any(f.files)"
                     />
                 </label>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-month">
@@ -376,7 +359,6 @@ interface DemoModel {
                     <input tuiInputMonth [formField]="$any(f.month)" />
                     <tui-calendar-month *tuiDropdown />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-month-range">
@@ -389,7 +371,6 @@ interface DemoModel {
                     />
                     <tui-calendar-month *tuiDropdown />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-number">
@@ -399,7 +380,6 @@ interface DemoModel {
                     <input tuiInputNumber [formField]="$any(f.number)" />
                 </tui-textfield>
                 <tui-error [formField]="$any(f.number)" />
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-phone">
@@ -408,7 +388,6 @@ interface DemoModel {
                     <label tuiLabel>Phone</label>
                     <input tuiInputPhone [formField]="$any(f.phone)" />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-phone-international">
@@ -421,7 +400,6 @@ interface DemoModel {
                         [(countryIsoCode)]="countryIsoCode"
                     />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-range">
@@ -433,7 +411,6 @@ interface DemoModel {
                 >
                     Range
                 </tui-input-range>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-time">
@@ -442,7 +419,6 @@ interface DemoModel {
                     <label tuiLabel>Time</label>
                     <input tuiInputTime [formField]="$any(f.time)" />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-year">
@@ -451,7 +427,6 @@ interface DemoModel {
                     <label tuiLabel>Year</label>
                     <input tuiInputYear [formField]="$any(f.year)" />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="pincode">
@@ -459,7 +434,6 @@ interface DemoModel {
                 <tui-textfield>
                     <input tuiPincode [formField]="$any(f.pincode)" />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="radio-list">
@@ -468,19 +442,16 @@ interface DemoModel {
                     [formField]="$any(f.radioList)"
                     [items]="radioItems"
                 />
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="range">
                 <h3>Range</h3>
                 <tui-range [formField]="$any(f.range)" />
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="rating">
                 <h3>Rating</h3>
                 <tui-rating [formField]="$any(f.rating)" />
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="select">
@@ -493,7 +464,6 @@ interface DemoModel {
                         [items]="people"
                     />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="native-select">
@@ -505,7 +475,6 @@ interface DemoModel {
                         [formField]="$any(f.nativeSelect)"
                     ></select>
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="multi-select">
@@ -517,7 +486,6 @@ interface DemoModel {
                         [formField]="$any(f.multiSelect)"
                     ></select>
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-card">
@@ -526,7 +494,6 @@ interface DemoModel {
                     <label tuiLabel>Card number</label>
                     <input tuiInputCard [formField]="$any(f.card)" />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-expire">
@@ -535,7 +502,6 @@ interface DemoModel {
                     <label tuiLabel>Expires</label>
                     <input tuiInputExpire [formField]="f.expire" />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-cvc">
@@ -544,13 +510,11 @@ interface DemoModel {
                     <label tuiLabel>CVC</label>
                     <input tuiInputCVC [formField]="f.cvc" />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-card-group">
                 <h3>Input Card Group</h3>
                 <tui-input-card-group [formField]="$any(f.cardGroup)" />
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-date-multi">
@@ -562,7 +526,6 @@ interface DemoModel {
                         [formField]="$any(f.dateMulti)"
                     />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-date-range">
@@ -574,7 +537,6 @@ interface DemoModel {
                         [formField]="$any(f.dateRange)"
                     />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-date-time">
@@ -586,7 +548,6 @@ interface DemoModel {
                         [formField]="$any(f.dateTime)"
                     />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-inline">
@@ -594,7 +555,6 @@ interface DemoModel {
                 <tui-input-inline>
                     <input [formField]="f.inline" />
                 </tui-input-inline>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-pin">
@@ -602,7 +562,6 @@ interface DemoModel {
                 <tui-textfield>
                     <input tuiInputPin [formField]="$any(f.pin)" />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-slider">
@@ -614,7 +573,6 @@ interface DemoModel {
                         [formField]="$any(f.inputSlider)"
                     />
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="search-bar">
@@ -626,7 +584,6 @@ interface DemoModel {
                         [formField]="f.searchBar"
                     />
                 </search>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example" id="input-search">
@@ -643,7 +600,6 @@ interface DemoModel {
                         </div>
                     </ng-template>
                 </tui-textfield>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
 
             <article class="example example_gap" id="table-control">
@@ -680,7 +636,6 @@ interface DemoModel {
                         }
                     </tbody>
                 </table>
-                <a class="back-link" href="#compatibility-table">Back to compatibility table</a>
             </article>
         </div>
 
