@@ -222,3 +222,23 @@ tbody tr {
         outline-offset: 0.125rem;
     }
 }
+
+
+.live-card {
+    position: relative;
+}
+
+.compatibility-jump {
+    position: sticky;
+    z-index: 2;
+    top: 1rem;
+    display: flex;
+    height: 0;
+    justify-content: flex-end;
+    pointer-events: none;
+
+    a {
+        pointer-events: auto;
+        box-shadow: var(--tui-shadow-small);
+    }
+}

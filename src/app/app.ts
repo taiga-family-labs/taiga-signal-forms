@@ -1,11 +1,12 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {TuiButton} from '@taiga-ui/core';
 
 import {COMPONENTS} from './compatibility';
 import {FormControls} from './form-controls';
 
 @Component({
     selector: 'app-compatibility',
-    imports: [FormControls],
+    imports: [FormControls, TuiButton],
     template: `
         <main class="page">
             <header class="hero">
@@ -24,13 +25,25 @@ import {FormControls} from './form-controls';
                 </div>
             </header>
 
-            <section class="card">
+            <section class="card live-card">
                 <div class="section-heading">
                     <div>
                         <p class="eyebrow">Live compatibility lab</p>
                         <h2>All Taiga UI form controls</h2>
                     </div>
                     <span class="status" data-status="live">44 live + 1 gap</span>
+                </div>
+
+                <div class="compatibility-jump">
+                    <a
+                        appearance="flat-grayscale"
+                        aria-label="Jump to compatibility table"
+                        href="#compatibility-table"
+                        size="s"
+                        tuiButton
+                    >
+                        ↑ Compatibility
+                    </a>
                 </div>
 
                 <app-form-controls />
