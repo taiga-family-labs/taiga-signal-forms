@@ -57,7 +57,12 @@ import {FormControls} from './form-controls';
                             @for (row of components; track row.id) {
                                 <tr>
                                     <td class="control-cell">
-                                        <strong>{{ row.name }}</strong>
+                                        <a
+                                            class="control-link"
+                                            [attr.href]="'#' + row.id"
+                                        >
+                                            {{ row.name }}
+                                        </a>
                                         <code>{{ row.package }}</code>
                                     </td>
                                     <td>
