@@ -36,7 +36,7 @@ import {FormControls} from './form-controls';
                 <app-form-controls />
             </section>
 
-            <section class="card">
+            <section class="card" id="compatibility-table">
                 <div class="section-heading">
                     <div>
                         <p class="eyebrow">Compatibility</p>
@@ -62,6 +62,12 @@ import {FormControls} from './form-controls';
                                             [attr.href]="'#' + row.id"
                                         >
                                             {{ row.name }}
+                                            <span
+                                                aria-hidden="true"
+                                                class="anchor-icon"
+                                            >
+                                                #
+                                            </span>
                                         </a>
                                         <code>{{ row.package }}</code>
                                     </td>

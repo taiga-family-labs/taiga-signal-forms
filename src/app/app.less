@@ -171,3 +171,39 @@ tbody tr:last-child td {
         flex-direction: column;
     }
 }
+
+
+#compatibility-table {
+    scroll-margin-block-start: 1rem;
+}
+
+tbody tr {
+    transition: background 0.15s ease;
+
+    &:hover,
+    &:focus-within {
+        background: var(--tui-background-neutral-1);
+    }
+
+    &:hover .anchor-icon,
+    &:focus-within .anchor-icon {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.control-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35rem;
+}
+
+.anchor-icon {
+    color: var(--tui-text-secondary);
+    font-weight: 400;
+    opacity: 0;
+    transform: translateX(-0.2rem);
+    transition:
+        opacity 0.15s ease,
+        transform 0.15s ease;
+}
