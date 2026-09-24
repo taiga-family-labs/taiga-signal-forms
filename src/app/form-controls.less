@@ -23,11 +23,20 @@
 
 .example {
     min-width: 0;
+    scroll-margin-block-start: 1rem;
     overflow: hidden;
     padding: 1rem;
     border: 1px solid var(--tui-border-normal);
     border-radius: 0.9rem;
     background: var(--tui-background-base);
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+    &:target {
+        border-color: var(--tui-border-focus);
+        box-shadow: 0 0 0 0.125rem var(--tui-border-focus);
+    }
 
     h3 {
         display: flex;
