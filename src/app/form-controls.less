@@ -23,15 +23,38 @@
 
 .example {
     min-width: 0;
+    scroll-margin-block-start: 1rem;
+    overflow: hidden;
     padding: 1rem;
     border: 1px solid var(--tui-border-normal);
     border-radius: 0.9rem;
     background: var(--tui-background-base);
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+    &:target {
+        border-color: var(--tui-border-focus);
+        box-shadow: 0 0 0 0.125rem var(--tui-border-focus);
+    }
 
     h3 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
         margin: 0 0 0.9rem;
         color: var(--tui-text-secondary);
         font: var(--tui-typography-label-m);
+    }
+
+    > *,
+    tui-textfield,
+    tui-input-card-group,
+    tui-input-range,
+    search[tuiSearchBar],
+    table[tuiTable] {
+        max-inline-size: 100%;
     }
 }
 
@@ -44,6 +67,36 @@
 .stack {
     display: grid;
     gap: 0.5rem;
+}
+
+.example_gap {
+    border-style: dashed;
+}
+
+.gap-badge {
+    padding: 0.15rem 0.45rem;
+    border-radius: 999px;
+    background: var(--tui-background-warning-1);
+    color: var(--tui-text-warning);
+    font: var(--tui-typography-label-s);
+}
+
+.gap-copy {
+    margin: 0 0 0.75rem;
+    color: var(--tui-text-secondary);
+    font: var(--tui-typography-body-s);
+}
+
+.example table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+        padding: 0.4rem;
+        border-bottom: 1px solid var(--tui-border-normal);
+        text-align: left;
+    }
 }
 
 .model {

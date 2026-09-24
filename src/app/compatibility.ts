@@ -1,275 +1,97 @@
-export type CompatibilityStatus = 'verified' | 'compatible' | 'not-applicable';
-export type Integration = 'native' | 'cva' | 'composite' | 'validation' | 'not-applicable';
+export type CompatibilityStatus = 'verified' | 'live' | 'gap';
 
 export interface CompatibilityRow {
+    readonly id: string;
     readonly name: string;
-    readonly title: string;
-    readonly integration: Integration;
+    readonly package:
+        | '@taiga-ui/core'
+        | '@taiga-ui/kit'
+        | '@taiga-ui/layout'
+        | '@taiga-ui/addon-commerce'
+        | '@taiga-ui/addon-mobile'
+        | '@taiga-ui/addon-table';
     readonly status: CompatibilityStatus;
-    readonly statusLabel: string;
-    readonly note: string;
+    readonly label: string;
 }
 
-const COMPONENT_NAMES = [
-    'accordion',
-    'action-bar',
-    'app-bar',
-    'arc-chart',
-    'avatar',
-    'axes',
-    'badge-notification',
-    'badge',
-    'badged-content',
-    'bar-chart',
-    'bar-set',
-    'bar',
-    'block-details',
-    'block-status',
-    'block',
-    'bottom-sheet',
-    'breadcrumbs',
-    'button-group',
-    'button-select',
-    'button-x',
-    'button',
-    'calendar-experimental',
-    'calendar-month',
-    'calendar-range',
-    'calendar',
-    'card-collapsed',
-    'card-large',
-    'card-medium',
-    'carousel',
-    'cell',
-    'checkbox',
-    'chip',
-    'combo-box',
-    'comment',
-    'compass',
-    'confirm',
-    'copy',
-    'counter',
-    'data-list-wrapper',
-    'data-list',
-    'dialog-routable',
-    'dialog',
-    'drawer',
-    'elastic-container',
-    'error',
-    'expand',
-    'file',
-    'filter',
-    'floating-container',
-    'form',
-    'group',
-    'header',
-    'icon',
-    'input-card-group',
-    'input-card',
-    'input-chip',
-    'input-color',
-    'input-date-multi',
-    'input-date-range',
-    'input-date-time',
-    'input-date',
+const VERIFIED = new Set([
+    'input',
     'input-files',
-    'input-inline',
-    'input-month-range',
-    'input-month',
     'input-number',
     'input-phone-international',
-    'input-phone',
-    'input-pin',
     'input-range',
-    'input-slider',
-    'input-time',
-    'input-year',
-    'input',
-    'item-group',
-    'items-with-more',
-    'keypad',
-    'label',
-    'legend-item',
-    'like',
-    'line-chart',
-    'line-clamp',
-    'line-days-chart',
-    'link',
-    'list',
-    'loader',
-    'message',
-    'meter',
-    'mobile-calendar',
-    'navigation',
-    'notification-middle',
-    'notification',
-    'pager',
-    'pagination',
-    'pdf-viewer',
-    'pie-chart',
-    'pin',
     'pincode',
-    'popout',
-    'preview',
-    'progress-bar',
-    'progress-circle',
-    'pull-to-refresh',
-    'pulse',
-    'push',
     'radio-list',
-    'radio',
-    'range',
-    'rating',
-    'reorder',
-    'ring-chart',
-    'scroll-wheel',
-    'scrollbar',
-    'search-bar',
-    'search',
-    'segmented',
-    'select',
-    'services',
-    'sheet-dialog',
-    'shrink-wrap',
-    'slider',
-    'slides',
-    'status',
-    'stepper',
-    'surface',
-    'swipe-actions',
-    'switch',
-    'tab-bar',
-    'table-filters',
-    'table-pagination',
-    'table',
-    'tabs',
-    'textarea',
-    'thumbnail-card',
-    'tiles',
-    'timeline',
-    'title',
-    'toast',
-    'tooltip',
-    'tree',
-    'utils',
+]);
+
+const CONTROLS = [
+    ['input', 'Input', '@taiga-ui/core'],
+    ['checkbox', 'Checkbox', '@taiga-ui/core'],
+    ['radio', 'Radio', '@taiga-ui/core'],
+    ['slider', 'Slider', '@taiga-ui/core'],
+
+    ['block', 'Block', '@taiga-ui/kit'],
+    ['button-select', 'Button Select', '@taiga-ui/kit'],
+    ['combo-box', 'ComboBox', '@taiga-ui/kit'],
+    ['counter', 'Counter', '@taiga-ui/kit'],
+    ['filter', 'Filter', '@taiga-ui/kit'],
+    ['input-chip', 'Input Chip', '@taiga-ui/kit'],
+    ['input-color', 'Input Color', '@taiga-ui/kit'],
+    ['input-date', 'Input Date', '@taiga-ui/kit'],
+    ['input-date-multi', 'Input Date Multi', '@taiga-ui/kit'],
+    ['input-date-range', 'Input Date Range', '@taiga-ui/kit'],
+    ['input-date-time', 'Input Date Time', '@taiga-ui/kit'],
+    ['input-files', 'Input Files', '@taiga-ui/kit'],
+    ['input-inline', 'Input Inline', '@taiga-ui/kit'],
+    ['input-month', 'Input Month', '@taiga-ui/kit'],
+    ['input-month-range', 'Input Month Range', '@taiga-ui/kit'],
+    ['input-number', 'Input Number', '@taiga-ui/kit'],
+    ['input-phone', 'Input Phone', '@taiga-ui/kit'],
+    ['input-phone-international', 'Input Phone International', '@taiga-ui/kit'],
+    ['input-pin', 'Input Pin', '@taiga-ui/kit'],
+    ['input-range', 'Input Range', '@taiga-ui/kit'],
+    ['input-slider', 'Input Slider', '@taiga-ui/kit'],
+    ['input-time', 'Input Time', '@taiga-ui/kit'],
+    ['input-year', 'Input Year', '@taiga-ui/kit'],
+    ['like', 'Like', '@taiga-ui/kit'],
+    ['multi-select', 'MultiSelect', '@taiga-ui/kit'],
+    ['pincode', 'Pincode', '@taiga-ui/kit'],
+    ['radio-list', 'Radio List', '@taiga-ui/kit'],
+    ['range', 'Range', '@taiga-ui/kit'],
+    ['rating', 'Rating', '@taiga-ui/kit'],
+    ['segmented', 'Segmented', '@taiga-ui/kit'],
+    ['select', 'Select', '@taiga-ui/kit'],
+    ['native-select', 'Native Select', '@taiga-ui/kit'],
+    ['switch', 'Switch', '@taiga-ui/kit'],
+    ['textarea', 'Textarea', '@taiga-ui/kit'],
+
+    ['input-card', 'Input Card', '@taiga-ui/addon-commerce'],
+    ['input-cvc', 'Input CVC', '@taiga-ui/addon-commerce'],
+    ['input-expire', 'Input Expire', '@taiga-ui/addon-commerce'],
+    ['input-card-group', 'Input Card Group', '@taiga-ui/addon-commerce'],
+
+    ['search-bar', 'Search Bar', '@taiga-ui/addon-mobile'],
+    ['input-search', 'Input Search', '@taiga-ui/layout'],
+
+    ['table-control', 'Table Control', '@taiga-ui/addon-table'],
 ] as const;
 
-const VERIFIED = new Set<string>([
-    'error',
-    'input-files',
-    'input-number',
-    'input-phone-international',
-    'input-range',
-    'input',
-    'pincode',
-    'radio-list',
-]);
+export const COMPONENTS: readonly CompatibilityRow[] = CONTROLS.map(
+    ([id, name, packageName]) => {
+        const status: CompatibilityStatus =
+            id === 'table-control' ? 'gap' : VERIFIED.has(id) ? 'verified' : 'live';
 
-const CVA = new Set<string>([
-    'button-select',
-    'combo-box',
-    'counter',
-    'filter',
-    'input-card-group',
-    'input-chip',
-    'input-color',
-    'input-date',
-    'input-files',
-    'input-month',
-    'input-month-range',
-    'input-number',
-    'input-phone',
-    'input-phone-international',
-    'input-range',
-    'input-time',
-    'input-year',
-    'pincode',
-    'radio-list',
-    'radio',
-    'range',
-    'rating',
-    'select',
-]);
-
-const NATIVE = new Set<string>(['checkbox', 'input', 'slider', 'switch', 'textarea']);
-
-const COMPOSITE = new Set<string>([
-    'input-card',
-    'input-date-multi',
-    'input-date-range',
-    'input-date-time',
-    'input-inline',
-    'input-pin',
-    'input-slider',
-]);
-
-function title(name: string): string {
-    return name
-        .split('-')
-        .map((part) => part[0]?.toUpperCase() + part.slice(1))
-        .join(' ');
-}
-
-function integration(name: string): Integration {
-    if (name === 'error') {
-        return 'validation';
-    }
-
-    if (NATIVE.has(name)) {
-        return 'native';
-    }
-
-    if (CVA.has(name)) {
-        return 'cva';
-    }
-
-    if (COMPOSITE.has(name)) {
-        return 'composite';
-    }
-
-    return 'not-applicable';
-}
-
-function note(name: string, kind: Integration, status: CompatibilityStatus): string {
-    if (status === 'verified') {
-        return 'Live [formField] demo here plus dedicated upstream Taiga UI Signal Forms Cypress coverage.';
-    }
-
-    if (kind === 'native') {
-        return 'Live [formField] demo on the native form element.';
-    }
-
-    if (kind === 'cva') {
-        return 'Live demo through Taiga TuiControl / ControlValueAccessor interoperability.';
-    }
-
-    if (kind === 'composite') {
-        return 'Live demo through the component existing form-control bridge.';
-    }
-
-    if (kind === 'validation') {
-        return 'Live tui-error[formField] integration.';
-    }
-
-    return 'This component is not a form value control, so Signal Forms binding is not applicable.';
-}
-
-export const COMPONENTS: readonly CompatibilityRow[] = COMPONENT_NAMES.map((name) => {
-    const kind = integration(name);
-    const status: CompatibilityStatus =
-        kind === 'not-applicable' ? 'not-applicable' : VERIFIED.has(name) ? 'verified' : 'compatible';
-
-    return {
-        name,
-        title: title(name),
-        integration: kind,
-        status,
-        statusLabel:
-            status === 'verified'
-                ? 'Verified upstream'
-                : status === 'compatible'
-                  ? 'Live demo'
-                  : 'N/A',
-        note: note(name, kind, status),
-    };
-});
+        return {
+            id,
+            name,
+            package: packageName,
+            status,
+            label:
+                status === 'verified'
+                    ? 'Verified upstream'
+                    : status === 'live'
+                      ? 'Live [formField]'
+                      : 'Selector gap',
+        };
+    },
+);
