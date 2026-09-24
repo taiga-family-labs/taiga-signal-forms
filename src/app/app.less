@@ -207,3 +207,18 @@ tbody tr {
         opacity 0.15s ease,
         transform 0.15s ease;
 }
+
+
+.status-link {
+    gap: 0.25rem;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:focus-visible {
+        outline: 0.125rem solid var(--tui-border-focus);
+        outline-offset: 0.125rem;
+    }
+}
