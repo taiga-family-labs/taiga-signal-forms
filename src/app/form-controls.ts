@@ -178,7 +178,7 @@ interface DemoModel {
         </div>
 
         <div class="grid">
-            <article class="example">
+            <article class="example" id="input">
                 <h3>Input</h3>
                 <tui-textfield>
                     <label tuiLabel>Text</label>
@@ -250,7 +250,7 @@ interface DemoModel {
                 </tui-segmented>
             </article>
 
-            <article class="example">
+            <article class="example" id="slider">
                 <h3>Slider</h3>
                 <input
                     tuiSlider
@@ -259,7 +259,7 @@ interface DemoModel {
                 />
             </article>
 
-            <article class="example">
+            <article class="example" id="switch">
                 <h3>Switch</h3>
                 <label class="inline-control">
                     <input tuiSwitch type="checkbox" [formField]="f.switch" />
@@ -267,7 +267,7 @@ interface DemoModel {
                 </label>
             </article>
 
-            <article class="example">
+            <article class="example" id="textarea">
                 <h3>Textarea</h3>
                 <tui-textfield>
                     <label tuiLabel>Comment</label>
@@ -275,7 +275,7 @@ interface DemoModel {
                 </tui-textfield>
             </article>
 
-            <article class="example">
+            <article class="example" id="button-select">
                 <h3>Button Select</h3>
                 <button
                     tuiButton
@@ -291,7 +291,7 @@ interface DemoModel {
                 </button>
             </article>
 
-            <article class="example">
+            <article class="example" id="combo-box">
                 <h3>ComboBox</h3>
                 <tui-textfield tuiChevron>
                     <input tuiComboBox [formField]="$any(f.combo)" />
@@ -302,12 +302,12 @@ interface DemoModel {
                 </tui-textfield>
             </article>
 
-            <article class="example">
+            <article class="example" id="counter">
                 <h3>Counter</h3>
                 <tui-counter [formField]="$any(f.counter)" />
             </article>
 
-            <article class="example">
+            <article class="example" id="filter">
                 <h3>Filter</h3>
                 <tui-filter
                     size="s"
@@ -316,7 +316,7 @@ interface DemoModel {
                 />
             </article>
 
-            <article class="example">
+            <article class="example" id="input-chip">
                 <h3>Input Chip</h3>
                 <tui-textfield multi>
                     <label tuiLabel>Tags</label>
@@ -324,7 +324,7 @@ interface DemoModel {
                 </tui-textfield>
             </article>
 
-            <article class="example">
+            <article class="example" id="input-color">
                 <h3>Input Color</h3>
                 <tui-textfield>
                     <label tuiLabel>Color</label>
@@ -332,7 +332,7 @@ interface DemoModel {
                 </tui-textfield>
             </article>
 
-            <article class="example">
+            <article class="example" id="input-date">
                 <h3>Input Date</h3>
                 <tui-textfield>
                     <label tuiLabel>Date</label>
@@ -341,7 +341,7 @@ interface DemoModel {
                 </tui-textfield>
             </article>
 
-            <article class="example">
+            <article class="example" id="input-files">
                 <h3>Input Files</h3>
                 <label tuiInputFiles>
                     <input
@@ -352,7 +352,7 @@ interface DemoModel {
                 </label>
             </article>
 
-            <article class="example">
+            <article class="example" id="input-month">
                 <h3>Input Month</h3>
                 <tui-textfield>
                     <label tuiLabel>Month</label>
@@ -361,7 +361,7 @@ interface DemoModel {
                 </tui-textfield>
             </article>
 
-            <article class="example">
+            <article class="example" id="input-month-range">
                 <h3>Input Month Range</h3>
                 <tui-textfield>
                     <label tuiLabel>Month range</label>
@@ -373,7 +373,7 @@ interface DemoModel {
                 </tui-textfield>
             </article>
 
-            <article class="example">
+            <article class="example" id="input-number">
                 <h3>Input Number + Error</h3>
                 <tui-textfield>
                     <label tuiLabel>Amount</label>
@@ -382,7 +382,7 @@ interface DemoModel {
                 <tui-error [formField]="$any(f.number)" />
             </article>
 
-            <article class="example">
+            <article class="example" id="input-phone">
                 <h3>Input Phone</h3>
                 <tui-textfield>
                     <label tuiLabel>Phone</label>
@@ -390,7 +390,7 @@ interface DemoModel {
                 </tui-textfield>
             </article>
 
-            <article class="example">
+            <article class="example" id="input-phone-international">
                 <h3>Input Phone International</h3>
                 <tui-textfield>
                     <input
@@ -402,7 +402,7 @@ interface DemoModel {
                 </tui-textfield>
             </article>
 
-            <article class="example">
+            <article class="example" id="input-range">
                 <h3>Input Range</h3>
                 <tui-input-range
                     [min]="0"
@@ -413,7 +413,7 @@ interface DemoModel {
                 </tui-input-range>
             </article>
 
-            <article class="example">
+            <article class="example" id="input-time">
                 <h3>Input Time</h3>
                 <tui-textfield>
                     <label tuiLabel>Time</label>
@@ -421,7 +421,7 @@ interface DemoModel {
                 </tui-textfield>
             </article>
 
-            <article class="example">
+            <article class="example" id="input-year">
                 <h3>Input Year</h3>
                 <tui-textfield>
                     <label tuiLabel>Year</label>
@@ -429,14 +429,14 @@ interface DemoModel {
                 </tui-textfield>
             </article>
 
-            <article class="example">
+            <article class="example" id="pincode">
                 <h3>Pincode</h3>
                 <tui-textfield>
                     <input tuiPincode [formField]="$any(f.pincode)" />
                 </tui-textfield>
             </article>
 
-            <article class="example">
+            <article class="example" id="radio-list">
                 <h3>Radio List</h3>
                 <tui-radio-list
                     [formField]="$any(f.radioList)"
@@ -444,12 +444,12 @@ interface DemoModel {
                 />
             </article>
 
-            <article class="example">
+            <article class="example" id="range">
                 <h3>Range</h3>
                 <tui-range [formField]="$any(f.range)" />
             </article>
 
-            <article class="example">
+            <article class="example" id="rating">
                 <h3>Rating</h3>
                 <tui-rating [formField]="$any(f.rating)" />
             </article>
@@ -512,12 +512,12 @@ interface DemoModel {
                 </tui-textfield>
             </article>
 
-            <article class="example">
+            <article class="example" id="input-card-group">
                 <h3>Input Card Group</h3>
                 <tui-input-card-group [formField]="$any(f.cardGroup)" />
             </article>
 
-            <article class="example">
+            <article class="example" id="input-date-multi">
                 <h3>Input Date Multi</h3>
                 <tui-textfield multi>
                     <label tuiLabel>Dates</label>
@@ -528,7 +528,7 @@ interface DemoModel {
                 </tui-textfield>
             </article>
 
-            <article class="example">
+            <article class="example" id="input-date-range">
                 <h3>Input Date Range</h3>
                 <tui-textfield>
                     <label tuiLabel>Date range</label>
@@ -539,7 +539,7 @@ interface DemoModel {
                 </tui-textfield>
             </article>
 
-            <article class="example">
+            <article class="example" id="input-date-time">
                 <h3>Input Date Time</h3>
                 <tui-textfield>
                     <label tuiLabel>Date and time</label>
@@ -550,14 +550,14 @@ interface DemoModel {
                 </tui-textfield>
             </article>
 
-            <article class="example">
+            <article class="example" id="input-inline">
                 <h3>Input Inline</h3>
                 <tui-input-inline>
                     <input [formField]="f.inline" />
                 </tui-input-inline>
             </article>
 
-            <article class="example">
+            <article class="example" id="input-pin">
                 <h3>Input Pin</h3>
                 <tui-textfield>
                     <input tuiInputPin [formField]="$any(f.pin)" />
