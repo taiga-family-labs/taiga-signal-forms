@@ -197,8 +197,12 @@ interface DemoModel {
             <article class="example" id="block">
                 <h3>Block</h3>
                 <label tuiBlock="m">
-                    <input type="checkbox" [formField]="f.block" />
                     Block option
+                    <input
+                        tuiCheckbox
+                        type="checkbox"
+                        [formField]="f.block"
+                    />
                 </label>
             </article>
 

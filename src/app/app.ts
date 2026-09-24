@@ -42,7 +42,7 @@ import {FormControls} from './form-controls';
                         size="s"
                         tuiButton
                     >
-                        ↑ Compatibility
+                        ↓ Compatibility
                     </a>
                 </div>
 
