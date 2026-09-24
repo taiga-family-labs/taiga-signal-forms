@@ -5,6 +5,16 @@
     color-scheme: light dark;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
 html,
 body {
     margin: 0;
