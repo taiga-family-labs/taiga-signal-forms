@@ -12,16 +12,20 @@ export interface CompatibilityRow {
         | '@taiga-ui/addon-table';
     readonly status: CompatibilityStatus;
     readonly label: string;
+    readonly testUrl?: string;
 }
 
-const VERIFIED = new Set([
-    'input',
-    'input-files',
-    'input-number',
-    'input-phone-international',
-    'input-range',
-    'pincode',
-    'radio-list',
+const UPSTREAM_TESTS: ReadonlyMap<string, string> = new Map([
+    ['input', 'projects/demo-cypress/src/tests/input/signal-forms.cy.ts'],
+    ['input-files', 'projects/demo-cypress/src/tests/input-files/signal-forms.cy.ts'],
+    ['input-number', 'projects/demo-cypress/src/tests/input-number/signal-forms.cy.ts'],
+    [
+        'input-phone-international',
+        'projects/demo-cypress/src/tests/input-phone-international/signal-forms.cy.ts',
+    ],
+    ['input-range', 'projects/demo-cypress/src/tests/input-range/signal-forms.cy.ts'],
+    ['pincode', 'projects/demo-cypress/src/tests/pincode/signal-forms.cy.ts'],
+    ['radio-list', 'projects/demo-cypress/src/tests/radio-list/signal-forms.cy.ts'],
 ]);
 
 const CONTROLS = [
@@ -78,8 +82,9 @@ const CONTROLS = [
 
 export const COMPONENTS: readonly CompatibilityRow[] = CONTROLS.map(
     ([id, name, packageName]) => {
+        const testPath = UPSTREAM_TESTS.get(id);
         const status: CompatibilityStatus =
-            id === 'table-control' ? 'gap' : VERIFIED.has(id) ? 'verified' : 'live';
+            id === 'table-control' ? 'gap' : testPath ? 'verified' : 'live';
 
         return {
             id,
@@ -88,10 +93,13 @@ export const COMPONENTS: readonly CompatibilityRow[] = CONTROLS.map(
             status,
             label:
                 status === 'verified'
-                    ? 'Verified upstream'
+                    ? 'Upstream tested'
                     : status === 'live'
                       ? 'Live [formField]'
-                      : 'Selector gap',
+                      : 'Missing [formField] selector',
+            testUrl: testPath
+                ? `https://github.com/taiga-family/taiga-ui/blob/main/${testPath}`
+                : undefined,
         };
     },
 );

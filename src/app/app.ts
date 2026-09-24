@@ -72,12 +72,25 @@ import {FormControls} from './form-controls';
                                         <code>{{ row.package }}</code>
                                     </td>
                                     <td>
-                                        <span
-                                            class="status"
-                                            [attr.data-status]="row.status"
-                                        >
-                                            {{ row.label }}
-                                        </span>
+                                        @if (row.testUrl) {
+                                            <a
+                                                class="status status-link"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                [attr.data-status]="row.status"
+                                                [href]="row.testUrl"
+                                            >
+                                                {{ row.label }}
+                                                <span aria-hidden="true">↗</span>
+                                            </a>
+                                        } @else {
+                                            <span
+                                                class="status"
+                                                [attr.data-status]="row.status"
+                                            >
+                                                {{ row.label }}
+                                            </span>
+                                        }
                                     </td>
                                 </tr>
                             }
@@ -86,11 +99,12 @@ import {FormControls} from './form-controls';
                 </div>
 
                 <p class="footnote">
-                    <strong>Verified upstream</strong> means Taiga UI already has dedicated
-                    Signal Forms Cypress coverage. <strong>Live [formField]</strong> means this
-                    page compiles and renders the integration. <strong>Selector gap</strong>
-                    currently applies to Table Control: its v5 directive selector does not
-                    include <code>[formField]</code>.
+                    <strong>Upstream tested</strong> means Taiga UI already has a dedicated
+                    Signal Forms Cypress test; click the status to open it.
+                    <strong>Live [formField]</strong> means this page compiles and renders the
+                    integration. <strong>Missing [formField] selector</strong> means the control
+                    supports forms, but Taiga UI v5 does not activate its directive when
+                    <code>[formField]</code> is used.
                 </p>
             </section>
         </main>
