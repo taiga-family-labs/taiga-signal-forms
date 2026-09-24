@@ -72,13 +72,13 @@ import {FormControls} from './form-controls';
                                         <code>{{ row.package }}</code>
                                     </td>
                                     <td>
-                                        @if (row.testUrl) {
+                                        @if (row.detailsUrl) {
                                             <a
                                                 class="status status-link"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 [attr.data-status]="row.status"
-                                                [href]="row.testUrl"
+                                                [href]="row.detailsUrl"
                                             >
                                                 {{ row.label }}
                                                 <span aria-hidden="true">↗</span>
@@ -104,7 +104,8 @@ import {FormControls} from './form-controls';
                     <strong>Live [formField]</strong> means this page compiles and renders the
                     integration. <strong>Missing [formField] selector</strong> means the control
                     supports forms, but Taiga UI v5 does not activate its directive when
-                    <code>[formField]</code> is used.
+                    <code>[formField]</code> is used; click the status to open the selector
+                    in the Taiga UI source.
                 </p>
             </section>
         </main>
