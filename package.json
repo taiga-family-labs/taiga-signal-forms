@@ -8,8 +8,9 @@
     "check": "ng build --configuration production"
   },
   "dependencies": {
-    "@angular/cdk": "^22.1.0",
+    "@angular/cdk": "22.1.7",
     "@angular/common": "22.1.7",
+    "@angular/compiler": "22.1.7",
     "@angular/core": "22.1.7",
     "@angular/forms": "22.1.7",
     "@angular/platform-browser": "22.1.7",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "@angular/build": "22.1.7",
     "@angular/cli": "22.1.7",
+    "@angular/compiler-cli": "22.1.7",
     "less": "^4.4.1",
     "typescript": "~6.0.2"
   }
