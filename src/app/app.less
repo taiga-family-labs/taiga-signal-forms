@@ -112,6 +112,23 @@ tbody tr:last-child td {
     }
 }
 
+.control-link {
+    width: fit-content;
+    color: var(--tui-text-primary);
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:focus-visible {
+        border-radius: 0.25rem;
+        outline: 0.125rem solid var(--tui-border-focus);
+        outline-offset: 0.125rem;
+    }
+}
+
 .status {
     display: inline-flex;
     align-items: center;
