@@ -64,6 +64,7 @@ import {FormControls} from './form-controls';
                             <tr>
                                 <th>Control</th>
                                 <th>Signal Forms</th>
+                                <th>Support</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -105,6 +106,27 @@ import {FormControls} from './form-controls';
                                             </span>
                                         }
                                     </td>
+                                    <td>
+                                        @if (row.supportUrl) {
+                                            <a
+                                                class="support support-link"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                [attr.data-support]="row.support"
+                                                [href]="row.supportUrl"
+                                            >
+                                                {{ row.supportLabel }}
+                                                <span aria-hidden="true">↗</span>
+                                            </a>
+                                        } @else {
+                                            <span
+                                                class="support"
+                                                [attr.data-support]="row.support"
+                                            >
+                                                {{ row.supportLabel }}
+                                            </span>
+                                        }
+                                    </td>
                                 </tr>
                             }
                         </tbody>
@@ -119,6 +141,18 @@ import {FormControls} from './form-controls';
                     supports forms, but Taiga UI v5 does not activate its directive when
                     <code>[formField]</code> is used; click the status to open the selector
                     in the Taiga UI source.
+                </p>
+
+                <p class="footnote">
+                    <strong>Full</strong> means there are no known Signal Forms-specific
+                    conflicts in the control's public API. <strong>Partial</strong> means value
+                    binding works, but Taiga UI's <code>min</code>/<code>max</code> or
+                    <code>minLength</code>/<code>maxLength</code> inputs collide with Signal
+                    Forms metadata; the badge links to Angular #70600.
+                    <strong>Unsupported</strong> means <code>[formField]</code> cannot currently
+                    activate the control. Native <strong>Slider</strong> remains Full: its
+                    bounds should be declared with Signal Forms <code>min()</code>/<code>max()</code>
+                    rules instead of template <code>[min]</code>/<code>[max]</code>.
                 </p>
             </section>
         </main>
