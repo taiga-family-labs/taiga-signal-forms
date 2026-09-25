@@ -1,7 +1,7 @@
 import {JsonPipe} from '@angular/common';
 import {ChangeDetectionStrategy, Component, signal} from '@angular/core';
 import {FormControl, ReactiveFormsModule} from '@angular/forms';
-import {form, FormField, required} from '@angular/forms/signals';
+import {form, FormField, max, min, required} from '@angular/forms/signals';
 import {
     type TuiCard,
     TuiInputCard,
@@ -576,6 +576,7 @@ interface DemoModel {
                         tuiInputSlider
                         [formField]="$any(f.inputSlider)"
                     />
+                    <input tuiSlider type="range" />
                 </tui-textfield>
             </article>
 
@@ -722,5 +723,9 @@ export class FormControls {
 
     protected readonly f = form(this.model, (path) => {
         required(path.number);
+        min(path.slider, 0);
+        max(path.slider, 100);
+        min(path.inputSlider, 0);
+        max(path.inputSlider, 100);
     });
 }
