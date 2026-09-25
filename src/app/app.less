@@ -242,3 +242,43 @@ tbody tr {
         box-shadow: var(--tui-shadow-small);
     }
 }
+
+
+.support {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.6rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    font: var(--tui-typography-label-s);
+
+    &[data-support='full'] {
+        background: var(--tui-background-positive-1);
+        color: var(--tui-text-positive);
+    }
+
+    &[data-support='partial'] {
+        background: var(--tui-background-warning-1);
+        color: var(--tui-text-warning);
+    }
+
+    &[data-support='unsupported'] {
+        background: var(--tui-background-negative-1);
+        color: var(--tui-text-negative);
+    }
+}
+
+.support-link {
+    gap: 0.25rem;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:focus-visible {
+        outline: 0.125rem solid var(--tui-border-focus);
+        outline-offset: 0.125rem;
+    }
+}

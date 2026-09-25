@@ -1,4 +1,5 @@
 export type CompatibilityStatus = 'verified' | 'live' | 'gap';
+export type SupportLevel = 'full' | 'partial' | 'unsupported';
 
 export interface CompatibilityRow {
     readonly id: string;
@@ -13,6 +14,9 @@ export interface CompatibilityRow {
     readonly status: CompatibilityStatus;
     readonly label: string;
     readonly detailsUrl?: string;
+    readonly support: SupportLevel;
+    readonly supportLabel: string;
+    readonly supportUrl?: string;
 }
 
 const UPSTREAM_TESTS: ReadonlyMap<string, string> = new Map([
@@ -27,6 +31,16 @@ const UPSTREAM_TESTS: ReadonlyMap<string, string> = new Map([
     ['pincode', 'projects/demo-cypress/src/tests/pincode/signal-forms.cy.ts'],
     ['radio-list', 'projects/demo-cypress/src/tests/radio-list/signal-forms.cy.ts'],
 ]);
+
+const PARTIAL_SUPPORT = new Set([
+    'input-date-multi',
+    'input-date-range',
+    'input-range',
+    'range',
+    'textarea',
+]);
+
+const SIGNAL_FORMS_MIN_MAX_ISSUE = 'https://github.com/angular/angular/issues/70600';
 
 const CONTROLS = [
     ['input', 'Input', '@taiga-ui/core'],
@@ -85,6 +99,12 @@ export const COMPONENTS: readonly CompatibilityRow[] = CONTROLS.map(
         const testPath = UPSTREAM_TESTS.get(id);
         const status: CompatibilityStatus =
             id === 'table-control' ? 'gap' : testPath ? 'verified' : 'live';
+        const support: SupportLevel =
+            id === 'table-control'
+                ? 'unsupported'
+                : PARTIAL_SUPPORT.has(id)
+                  ? 'partial'
+                  : 'full';
 
         return {
             id,
@@ -103,6 +123,14 @@ export const COMPONENTS: readonly CompatibilityRow[] = CONTROLS.map(
                     : testPath
                       ? `https://github.com/taiga-family/taiga-ui/blob/main/${testPath}`
                       : undefined,
+            support,
+            supportLabel:
+                support === 'full'
+                    ? 'Full'
+                    : support === 'partial'
+                      ? 'Partial'
+                      : 'Unsupported',
+            supportUrl: support === 'partial' ? SIGNAL_FORMS_MIN_MAX_ISSUE : undefined,
         };
     },
 );
