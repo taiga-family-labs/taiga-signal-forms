@@ -3,10 +3,11 @@ import {TuiButton} from '@taiga-ui/core';
 
 import {COMPONENTS} from './compatibility';
 import {FormControls} from './form-controls';
+import {SignalFormsPlayground} from './signal-forms-playground';
 
 @Component({
     selector: 'app-compatibility',
-    imports: [FormControls, TuiButton],
+    imports: [FormControls, SignalFormsPlayground, TuiButton],
     template: `
         <main class="page">
             <header class="hero">
@@ -47,6 +48,18 @@ import {FormControls} from './form-controls';
                 </div>
 
                 <app-form-controls />
+            </section>
+
+            <section class="card" id="behavior-playground">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Behavior</p>
+                        <h2>Validation and field state</h2>
+                    </div>
+                    <span>live Signal Forms state</span>
+                </div>
+
+                <app-signal-forms-playground />
             </section>
 
             <section class="card" id="compatibility-table">
