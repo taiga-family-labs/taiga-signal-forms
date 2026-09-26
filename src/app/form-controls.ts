@@ -222,7 +222,7 @@ interface DemoModel {
                             tuiRadio
                             type="radio"
                             value="One"
-                            [formField]="$any(f.radio)"
+                            [formField]="f.radio"
                         />
                         One
                     </label>
@@ -231,7 +231,7 @@ interface DemoModel {
                             tuiRadio
                             type="radio"
                             value="Two"
-                            [formField]="$any(f.radio)"
+                            [formField]="f.radio"
                         />
                         Two
                     </label>
@@ -246,7 +246,7 @@ interface DemoModel {
                             <input
                                 type="radio"
                                 [value]="item"
-                                [formField]="$any(f.segmented)"
+                                [formField]="f.segmented"
                             />
                             {{ item }}
                         </label>
@@ -259,7 +259,7 @@ interface DemoModel {
                 <input
                     tuiSlider
                     type="range"
-                    [formField]="$any(f.slider)"
+                    [formField]="f.slider"
                 />
             </article>
 
@@ -285,7 +285,7 @@ interface DemoModel {
                     tuiButton
                     tuiButtonSelect
                     appearance="outline-grayscale"
-                    [formField]="$any(f.buttonSelect)"
+                    [formField]="f.buttonSelect"
                 >
                     {{ model().buttonSelect }}
                     <tui-data-list-wrapper
@@ -298,7 +298,7 @@ interface DemoModel {
             <article class="example" id="combo-box">
                 <h3>ComboBox</h3>
                 <tui-textfield tuiChevron>
-                    <input tuiComboBox [formField]="$any(f.combo)" />
+                    <input tuiComboBox [formField]="f.combo" />
                     <tui-data-list-wrapper
                         *tuiDropdown
                         [items]="people"
@@ -308,14 +308,14 @@ interface DemoModel {
 
             <article class="example" id="counter">
                 <h3>Counter</h3>
-                <tui-counter [formField]="$any(f.counter)" />
+                <tui-counter [formField]="f.counter" />
             </article>
 
             <article class="example" id="filter">
                 <h3>Filter</h3>
                 <tui-filter
                     size="s"
-                    [formField]="$any(f.filter)"
+                    [formField]="f.filter"
                     [items]="filters"
                 />
             </article>
@@ -324,7 +324,7 @@ interface DemoModel {
                 <h3>Input Chip</h3>
                 <tui-textfield multi>
                     <label tuiLabel>Tags</label>
-                    <input tuiInputChip [formField]="$any(f.chips)" />
+                    <input tuiInputChip [formField]="f.chips" />
                 </tui-textfield>
             </article>
 
@@ -332,7 +332,7 @@ interface DemoModel {
                 <h3>Input Color</h3>
                 <tui-textfield>
                     <label tuiLabel>Color</label>
-                    <input tuiInputColor [formField]="$any(f.color)" />
+                    <input tuiInputColor [formField]="f.color" />
                 </tui-textfield>
             </article>
 
@@ -340,7 +340,7 @@ interface DemoModel {
                 <h3>Input Date</h3>
                 <tui-textfield>
                     <label tuiLabel>Date</label>
-                    <input tuiInputDate [formField]="$any(f.date)" />
+                    <input tuiInputDate [formField]="f.date" />
                     <tui-calendar *tuiDropdown />
                 </tui-textfield>
             </article>
@@ -351,7 +351,7 @@ interface DemoModel {
                     <input
                         multiple
                         tuiInputFiles
-                        [formField]="$any(f.files)"
+                        [formField]="f.files"
                     />
                 </label>
             </article>
@@ -360,7 +360,7 @@ interface DemoModel {
                 <h3>Input Month</h3>
                 <tui-textfield>
                     <label tuiLabel>Month</label>
-                    <input tuiInputMonth [formField]="$any(f.month)" />
+                    <input tuiInputMonth [formField]="f.month" />
                     <tui-calendar-month *tuiDropdown />
                 </tui-textfield>
             </article>
@@ -371,7 +371,7 @@ interface DemoModel {
                     <label tuiLabel>Month range</label>
                     <input
                         tuiInputMonthRange
-                        [formField]="$any(f.monthRange)"
+                        [formField]="f.monthRange"
                     />
                     <tui-calendar-month *tuiDropdown />
                 </tui-textfield>
@@ -381,16 +381,16 @@ interface DemoModel {
                 <h3>Input Number + Error</h3>
                 <tui-textfield>
                     <label tuiLabel>Amount</label>
-                    <input tuiInputNumber [formField]="$any(f.number)" />
+                    <input tuiInputNumber [formField]="f.number" />
                 </tui-textfield>
-                <tui-error [formField]="$any(f.number)" />
+                <tui-error [formField]="f.number" />
             </article>
 
             <article class="example" id="input-phone">
                 <h3>Input Phone</h3>
                 <tui-textfield>
                     <label tuiLabel>Phone</label>
-                    <input tuiInputPhone [formField]="$any(f.phone)" />
+                    <input tuiInputPhone [formField]="f.phone" />
                 </tui-textfield>
             </article>
 
@@ -400,7 +400,7 @@ interface DemoModel {
                     <input
                         tuiInputPhoneInternational
                         [countries]="countries"
-                        [formField]="$any(f.phoneInternational)"
+                        [formField]="f.phoneInternational"
                         [(countryIsoCode)]="countryIsoCode"
                     />
                 </tui-textfield>
@@ -411,7 +411,7 @@ interface DemoModel {
                 <tui-input-range
                     [min]="0"
                     [max]="100"
-                    [formField]="$any(f.inputRange)"
+                    [formField]="f.inputRange"
                 >
                     Range
                 </tui-input-range>
@@ -421,7 +421,7 @@ interface DemoModel {
                 <h3>Input Time</h3>
                 <tui-textfield>
                     <label tuiLabel>Time</label>
-                    <input tuiInputTime [formField]="$any(f.time)" />
+                    <input tuiInputTime [formField]="f.time" />
                 </tui-textfield>
             </article>
 
@@ -429,40 +429,40 @@ interface DemoModel {
                 <h3>Input Year</h3>
                 <tui-textfield>
                     <label tuiLabel>Year</label>
-                    <input tuiInputYear [formField]="$any(f.year)" />
+                    <input tuiInputYear [formField]="f.year" />
                 </tui-textfield>
             </article>
 
             <article class="example" id="pincode">
                 <h3>Pincode</h3>
                 <tui-textfield>
-                    <input tuiPincode [formField]="$any(f.pincode)" />
+                    <input tuiPincode [formField]="f.pincode" />
                 </tui-textfield>
             </article>
 
             <article class="example" id="radio-list">
                 <h3>Radio List</h3>
                 <tui-radio-list
-                    [formField]="$any(f.radioList)"
+                    [formField]="f.radioList"
                     [items]="radioItems"
                 />
             </article>
 
             <article class="example" id="range">
                 <h3>Range</h3>
-                <tui-range [formField]="$any(f.range)" />
+                <tui-range [formField]="f.range" />
             </article>
 
             <article class="example" id="rating">
                 <h3>Rating</h3>
-                <tui-rating [formField]="$any(f.rating)" />
+                <tui-rating [formField]="f.rating" />
             </article>
 
             <article class="example" id="select">
                 <h3>Select</h3>
                 <tui-textfield tuiChevron>
                     <label tuiLabel>User</label>
-                    <input tuiSelect [formField]="$any(f.select)" />
+                    <input tuiSelect [formField]="f.select" />
                     <tui-data-list-wrapper
                         *tuiDropdown
                         [items]="people"
@@ -476,7 +476,7 @@ interface DemoModel {
                     <select
                         tuiSelect
                         [items]="people"
-                        [formField]="$any(f.nativeSelect)"
+                        [formField]="f.nativeSelect"
                     ></select>
                 </tui-textfield>
             </article>
@@ -487,7 +487,7 @@ interface DemoModel {
                     <select
                         tuiMultiSelect
                         [items]="[people]"
-                        [formField]="$any(f.multiSelect)"
+                        [formField]="f.multiSelect"
                     ></select>
                 </tui-textfield>
             </article>
@@ -496,7 +496,7 @@ interface DemoModel {
                 <h3>Input Card</h3>
                 <tui-textfield>
                     <label tuiLabel>Card number</label>
-                    <input tuiInputCard [formField]="$any(f.card)" />
+                    <input tuiInputCard [formField]="f.card" />
                 </tui-textfield>
             </article>
 
@@ -518,7 +518,7 @@ interface DemoModel {
 
             <article class="example" id="input-card-group">
                 <h3>Input Card Group</h3>
-                <tui-input-card-group [formField]="$any(f.cardGroup)" />
+                <tui-input-card-group [formField]="f.cardGroup" />
             </article>
 
             <article class="example" id="input-date-multi">
@@ -527,7 +527,7 @@ interface DemoModel {
                     <label tuiLabel>Dates</label>
                     <input
                         tuiInputDateMulti
-                        [formField]="$any(f.dateMulti)"
+                        [formField]="f.dateMulti"
                     />
                 </tui-textfield>
             </article>
@@ -538,7 +538,7 @@ interface DemoModel {
                     <label tuiLabel>Date range</label>
                     <input
                         tuiInputDateRange
-                        [formField]="$any(f.dateRange)"
+                        [formField]="f.dateRange"
                     />
                 </tui-textfield>
             </article>
@@ -549,7 +549,7 @@ interface DemoModel {
                     <label tuiLabel>Date and time</label>
                     <input
                         tuiInputDateTime
-                        [formField]="$any(f.dateTime)"
+                        [formField]="f.dateTime"
                     />
                 </tui-textfield>
             </article>
@@ -564,7 +564,7 @@ interface DemoModel {
             <article class="example" id="input-pin">
                 <h3>Input Pin</h3>
                 <tui-textfield>
-                    <input tuiInputPin [formField]="$any(f.pin)" />
+                    <input tuiInputPin [formField]="f.pin" />
                 </tui-textfield>
             </article>
 
@@ -574,7 +574,7 @@ interface DemoModel {
                     <label tuiLabel>Value</label>
                     <input
                         tuiInputSlider
-                        [formField]="$any(f.inputSlider)"
+                        [formField]="f.inputSlider"
                     />
                     <input tuiSlider type="range" />
                 </tui-textfield>
