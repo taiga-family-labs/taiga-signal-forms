@@ -1,4 +1,4 @@
-export type CompatibilityStatus = 'verified' | 'live' | 'gap';
+export type CompatibilityStatus = 'upstream' | 'live' | 'gap';
 export type SupportLevel = 'full' | 'partial' | 'unsupported';
 
 export interface CompatibilityRow {
@@ -98,7 +98,7 @@ export const COMPONENTS: readonly CompatibilityRow[] = CONTROLS.map(
     ([id, name, packageName]) => {
         const testPath = UPSTREAM_TESTS.get(id);
         const status: CompatibilityStatus =
-            id === 'table-control' ? 'gap' : testPath ? 'verified' : 'live';
+            id === 'table-control' ? 'gap' : testPath ? 'upstream' : 'live';
         const support: SupportLevel =
             id === 'table-control'
                 ? 'unsupported'
@@ -112,8 +112,8 @@ export const COMPONENTS: readonly CompatibilityRow[] = CONTROLS.map(
             package: packageName,
             status,
             label:
-                status === 'verified'
-                    ? 'Upstream tested'
+                status === 'upstream'
+                    ? 'Upstream test prepared'
                     : status === 'live'
                       ? 'Live [formField]'
                       : 'Missing [formField] selector',
@@ -134,3 +134,47 @@ export const COMPONENTS: readonly CompatibilityRow[] = CONTROLS.map(
         };
     },
 );
+
+
+export interface IntegrationRow {
+    readonly name: string;
+    readonly package: string;
+    readonly label: string;
+    readonly detailsUrl: string;
+    readonly note: string;
+}
+
+export const INTEGRATIONS: readonly IntegrationRow[] = [
+    {
+        name: 'TuiError',
+        package: '@taiga-ui/core',
+        label: 'Live + upstream test prepared',
+        detailsUrl:
+            'https://github.com/taiga-family/taiga-ui/blob/main/projects/demo-cypress/src/tests/error/signal-forms.cy.ts',
+        note: 'Signal Forms errors, ordering, reset and validator interop',
+    },
+    {
+        name: 'TuiNativeValidator',
+        package: '@taiga-ui/cdk',
+        label: 'Upstream test prepared',
+        detailsUrl:
+            'https://github.com/taiga-family/taiga-ui/blob/main/projects/demo-cypress/src/tests/native-validator/signal-forms.cy.ts',
+        note: 'Native validity, aria-invalid and aria-describedby',
+    },
+    {
+        name: 'TuiUnfinishedValidator',
+        package: '@taiga-ui/kit',
+        label: 'Upstream test prepared',
+        detailsUrl:
+            'https://github.com/taiga-family/taiga-ui/blob/main/projects/demo-cypress/src/tests/unfinished-validator/signal-forms.cy.ts',
+        note: 'Partial date input and Signal Forms validation state',
+    },
+    {
+        name: 'TuiSearchHistory',
+        package: '@taiga-ui/experimental',
+        label: 'Upstream test prepared',
+        detailsUrl:
+            'https://github.com/taiga-family/taiga-ui/blob/main/projects/demo-cypress/src/tests/search-history/signal-forms.cy.ts',
+        note: 'Search history behavior with a [formField]-bound query',
+    },
+];
