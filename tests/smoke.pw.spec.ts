@@ -45,8 +45,16 @@ test('keeps Input Slider track inside its example card', async ({page}) => {
 test('shows support levels and navigates to the compatibility table', async ({page}) => {
     await page.goto('/');
 
-    await expect(page.locator('[data-support="partial"]')).toHaveCount(5);
-    await expect(page.locator('[data-support="unsupported"]')).toHaveCount(1);
+    const table = page.locator('#compatibility-table');
+    const summary = page.locator('.support-summary');
+
+    await expect(table.locator('[data-support="partial"]')).toHaveCount(5);
+    await expect(table.locator('[data-support="unsupported"]')).toHaveCount(1);
+    await expect(summary.locator('[data-support="full"]')).toHaveText('39 Full');
+    await expect(summary.locator('[data-support="partial"]')).toHaveText('5 Partial');
+    await expect(summary.locator('[data-support="unsupported"]')).toHaveText(
+        '1 Unsupported',
+    );
 
     await page.getByRole('link', {name: 'Jump to compatibility table'}).click();
 
