@@ -5,7 +5,8 @@
   "scripts": {
     "start": "ng serve",
     "build": "ng build",
-    "check": "ng build --configuration production"
+    "check": "ng build --configuration production",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@angular/cdk": "22.1.7",
@@ -34,6 +35,7 @@
     "@angular/cli": "22.1.7",
     "@angular/compiler-cli": "22.1.7",
     "less": "^4.4.1",
-    "typescript": "~6.0.2"
+    "typescript": "~6.0.2",
+    "@playwright/test": "^1.56.1"
   }
 }
