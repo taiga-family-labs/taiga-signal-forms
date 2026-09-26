@@ -32,7 +32,20 @@ import {SignalFormsPlayground} from './signal-forms-playground';
                         <p class="eyebrow">Live compatibility lab</p>
                         <h2>All Taiga UI form controls</h2>
                     </div>
-                    <span class="status" data-status="live">44 live + 1 gap</span>
+                    <div
+                        aria-label="Support summary"
+                        class="support-summary"
+                    >
+                        <span class="support" data-support="full">
+                            {{ supportSummary.full }} Full
+                        </span>
+                        <span class="support" data-support="partial">
+                            {{ supportSummary.partial }} Partial
+                        </span>
+                        <span class="support" data-support="unsupported">
+                            {{ supportSummary.unsupported }} Unsupported
+                        </span>
+                    </div>
                 </div>
 
                 <div class="compatibility-jump">
@@ -228,4 +241,9 @@ import {SignalFormsPlayground} from './signal-forms-playground';
 export class App {
     protected readonly components = COMPONENTS;
     protected readonly integrations = INTEGRATIONS;
+    protected readonly supportSummary = {
+        full: COMPONENTS.filter(({support}) => support === 'full').length,
+        partial: COMPONENTS.filter(({support}) => support === 'partial').length,
+        unsupported: COMPONENTS.filter(({support}) => support === 'unsupported').length,
+    };
 }
