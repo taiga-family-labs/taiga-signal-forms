@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {TuiButton} from '@taiga-ui/core';
 
-import {COMPONENTS} from './compatibility';
+import {COMPONENTS, INTEGRATIONS} from './compatibility';
 import {FormControls} from './form-controls';
 
 @Component({
@@ -134,8 +134,9 @@ import {FormControls} from './form-controls';
                 </div>
 
                 <p class="footnote">
-                    <strong>Upstream tested</strong> means Taiga UI already has a dedicated
-                    Signal Forms Cypress test; click the status to open it.
+                    <strong>Upstream test prepared</strong> means Taiga UI already has a dedicated
+                    Signal Forms Cypress test source, but the file is currently disabled until
+                    Taiga UI can require Angular 22; click the status to open it.
                     <strong>Live [formField]</strong> means this page compiles and renders the
                     integration. <strong>Missing [formField] selector</strong> means the control
                     supports forms, but Taiga UI v5 does not activate its directive when
@@ -155,6 +156,57 @@ import {FormControls} from './form-controls';
                     rules instead of template <code>[min]</code>/<code>[max]</code>.
                 </p>
             </section>
+
+            <section class="card" id="integrations">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Integrations</p>
+                        <h2>Beyond value controls</h2>
+                    </div>
+                    <span>{{ integrations.length }} integrations</span>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Integration</th>
+                                <th>Signal Forms</th>
+                                <th>What it covers</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (row of integrations; track row.name) {
+                                <tr>
+                                    <td class="control-cell">
+                                        <strong>{{ row.name }}</strong>
+                                        <code>{{ row.package }}</code>
+                                    </td>
+                                    <td>
+                                        <a
+                                            class="status status-link"
+                                            data-status="upstream"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            [href]="row.detailsUrl"
+                                        >
+                                            {{ row.label }}
+                                            <span aria-hidden="true">↗</span>
+                                        </a>
+                                    </td>
+                                    <td>{{ row.note }}</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="footnote">
+                    These upstream Signal Forms Cypress files are currently commented out while
+                    Taiga UI still supports Angular versions below 22. They are implementation
+                    evidence, not active upstream CI coverage yet.
+                </p>
+            </section>
         </main>
     `,
     styleUrl: './app.less',
@@ -162,4 +214,5 @@ import {FormControls} from './form-controls';
 })
 export class App {
     protected readonly components = COMPONENTS;
+    protected readonly integrations = INTEGRATIONS;
 }
