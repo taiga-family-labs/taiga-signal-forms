@@ -27,6 +27,12 @@ jobs:
       - name: Build
         run: npm run check -- --base-href /taiga-signal-forms/
 
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Playwright smoke
+        run: npm run test:e2e
+
       - name: Configure GitHub Pages
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v5
